@@ -6,7 +6,7 @@
 В рамках проекта реализуем простейшую модель с применением CLIP Loss и постараемся изучить влияние размороженных слоев, тестового промпта, аугментации и гиперпараметров на результирующую модель.
 
 В рамках исследовательской работы проводиться эксперимент по изучению влияние различных слоев модели, формулировке текстового промпта и различных гипермараметров на обучение и трансформацию модели в рамках искомого стилистического оформления. 
-Google colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]([https://colab.research.google.com/github/KeymanMike/StyleGAN-NADA-Implementation-2026/blob/main/StyleGAN_NADA_Implementation.ipynb](https://colab.research.google.com/drive/15Gw1bW2IYVy7vCSu5Za_rVCw8QBu8zuW?usp=sharing))
+Google colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/15Gw1bW2IYVy7vCSu5Za_rVCw8QBu8zuW?usp=sharing)
 
 В результате удалось получить модель и добиться стилизации в домен аниме и сформировать следующие выводы:
 <img width="1182" height="570" alt="best_result" src="https://github.com/user-attachments/assets/927356d9-3c5d-4df2-bf6d-09d526e7f964" />
