@@ -13,8 +13,8 @@
 - CosineAnnealingLR для плавного снижения learning rate
 - Логирование нормы градиента и изменения весов по слоям
 - Сохранение лучшей модели после стабилизации λ_clip
-  
 В рамках проекта реализуем простейшую модель с применением CLIP Loss и постараемся изучить влияние размороженных слоев, тестового промпта, аугментации и гиперпараметров на результирующую модель.
+Ознакомиться с процессом иследования можно в тетради Google Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/15Gw1bW2IYVy7vCSu5Za_rVCw8QBu8zuW?usp=sharing)
 
 ### Влияние текстового описания
 <img width="4789" height="627" alt="image" src="https://github.com/user-attachments/assets/c92d0e73-ae10-4323-b9da-fc4bf0577c99" />
@@ -48,26 +48,22 @@ pip install -r requirements.txt
 ```
 
 ### 2. Скачивание предобученной модели
-Скачайте `stylegan2-ffhq-config-f.pt` 
-[отсюда](https://drive.google.com/...) и поместите в папку `checkpoints/`.
+Скачайте веса модели `ANIME_best_model.pth` 
+[отсюда]([https://drive.google.com/...](https://drive.google.com/file/d/1AeG68hhsYlYoU79jUKad2JHWsWNtlP-R/view?usp=sharing)) и поместите в папку `checkpoints/`.
 
 ### 3. Запуск обучения
-Откройте `stylegan_nada_training.ipynb` в Google Colab 
-или по ссылке: Google colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/15Gw1bW2IYVy7vCSu5Za_rVCw8QBu8zuW?usp=sharing)
+Откройте `StyleGAN_NADA_research.ipynb` в Google Colab 
+или по ссылке: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1kkQgpnzO7vzN9ibNcwQTB2xsmQHo9L2N?usp=sharing)
 
 ## Структура проекта
 - `stylegan2-pytorch/` — реализация StyleGAN2 от rosinality
 - `checkpoints/` — предобученные модели и чекпоинты
 - `notebooks/` — Jupyter-ноутбуки с экспериментами
-- `src/` — модули (CLIP loss, utils и т.д.)
 - `results/` — изображения, графики
 
 
 ## Ссылки
 - Оригинальная статья: https://arxiv.org/abs/2108.00946
 - Репозиторий StyleGAN2: https://github.com/rosinality/stylegan2-pytorch
-
-
-
 
 
