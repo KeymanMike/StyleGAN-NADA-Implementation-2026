@@ -15,6 +15,7 @@
 - Сохранение лучшей модели после стабилизации λ_clip
 В рамках проекта реализуем простейшую модель с применением CLIP Loss и постараемся изучить влияние размороженных слоев, тестового промпта, аугментации и гиперпараметров на результирующую модель.
 
+
 Ознакомиться с процессом иследования можно в тетради Google Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/15Gw1bW2IYVy7vCSu5Za_rVCw8QBu8zuW?usp=sharing)
 
 ### Влияние текстового описания
