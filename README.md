@@ -13,6 +13,8 @@
 - CosineAnnealingLR для плавного снижения learning rate
 - Логирование нормы градиента и изменения весов по слоям
 - Сохранение лучшей модели после стабилизации λ_clip
+
+  
 В рамках проекта реализуем простейшую модель с применением CLIP Loss и постараемся изучить влияние размороженных слоев, тестового промпта, аугментации и гиперпараметров на результирующую модель.
 
 
@@ -26,6 +28,12 @@
 
 ### Анализ обучения
 <img width="1788" height="3190" alt="image" src="https://github.com/user-attachments/assets/a38e4d79-d6ae-4d30-916b-2576590e64bb" />
+
+<img width="2790" height="1489" alt="image" src="https://github.com/user-attachments/assets/a0b3f70f-5fe8-4fcf-afc8-68914d91db79" />
+
+<img width="2790" height="1489" alt="image" src="https://github.com/user-attachments/assets/3d42a53d-e35d-42b8-a093-f9001c1c0e27" />
+
+
 
 ## Результаты
 В результате удалось получить модель и добиться стилизации в домен аниме и сформировать следующие выводы:
