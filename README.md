@@ -1,13 +1,31 @@
-# StyleGAN-NADA-Imple-entation-2026
+# StyleGAN-NADA Implementation (2026)
+
+Реализация метода [StyleGAN-NADA](https://arxiv.org/abs/2108.00946) 
+для адаптации генератора StyleGAN2 под текстовое описание без целевых изображений.
 Финальный проект в рамках обучения DeepLearning. В данной работе работаю над улучшением идеи и ее адаптации для домена в генерации GANs.  
 
-В данном проекте постараемся реализовать идеи, предложенные в статье: https://stylegan-nada.github.io/
 
+## Особенности реализации
+- Поддержка нескольких текстовых формулировок и усреднённого направления CLIP
+- Эксперименты с разной глубиной разморозки слоёв (от 8×8 до 1024×1024)
+- Аугментации изображений (RandomPerspective, RandomResizedCrop) в CLIP-лоссе
+- Динамическое расписание λ_clip (линейный рост от 1.0 до 3.0)
+- CosineAnnealingLR для плавного снижения learning rate
+- Логирование нормы градиента и изменения весов по слоям
+- Сохранение лучшей модели после стабилизации λ_clip
+- 
 В рамках проекта реализуем простейшую модель с применением CLIP Loss и постараемся изучить влияние размороженных слоев, тестового промпта, аугментации и гиперпараметров на результирующую модель.
 
-В рамках исследовательской работы проводиться эксперимент по изучению влияние различных слоев модели, формулировке текстового промпта и различных гипермараметров на обучение и трансформацию модели в рамках искомого стилистического оформления. 
-Google colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/15Gw1bW2IYVy7vCSu5Za_rVCw8QBu8zuW?usp=sharing)
+### Влияние текстового описания
+<img width="4789" height="627" alt="image" src="https://github.com/user-attachments/assets/c92d0e73-ae10-4323-b9da-fc4bf0577c99" />
 
+### Влияние глубины разморозки
+<img width="5390" height="625" alt="image" src="https://github.com/user-attachments/assets/49c531a9-0c32-4e5a-9ad1-5f0e0ccd88a4" />
+
+### Анализ обучения
+<img width="1788" height="3190" alt="image" src="https://github.com/user-attachments/assets/a38e4d79-d6ae-4d30-916b-2576590e64bb" />
+
+## Результаты
 В результате удалось получить модель и добиться стилизации в домен аниме и сформировать следующие выводы:
 <img width="1182" height="570" alt="best_result" src="https://github.com/user-attachments/assets/927356d9-3c5d-4df2-bf6d-09d526e7f964" />
 
@@ -16,3 +34,40 @@ Google colab: [![Open In Colab](https://colab.research.google.com/assets/colab-b
 - С точки зрения визуализации разницы между близкими слоями почти не ощущается, так слои с 8х8 по 32х32 показали довольно близкие результаты по итогам обучения, однако скорость и количество фичей для таких моделей сильно разница, что позволяет нам брать модели с более высокими, но близкими по результату слоями. В итоге для обучения нашей модели слоит размораживать нижние слои модели, но не стремиться к разморозке самых низкоуровневых слоев.
 - Влияние текстового промпта оказалось также значимым, как и разморозка определенных слоев. Чем точнее и лучше будет описана доменная область, тем лучше получиться результат, однако не избежать излишних и неоправданных изменений в результирующей картинке.
 - Для точного и корректного формирования стилизованного домена самый лучший подход – усреднение нескольких эмбедингов для разных текстовых описаний. 
+
+
+
+
+## Установка и запуск
+
+### 1. Клонирование
+```bash
+git clone https://github.com/KeymanMike/StyleGAN-NADA-Implementation-2026
+cd StyleGAN-NADA-Implementation-2026
+pip install -r requirements.txt
+```
+
+### 2. Скачивание предобученной модели
+Скачайте `stylegan2-ffhq-config-f.pt` 
+[отсюда](https://drive.google.com/...) и поместите в папку `checkpoints/`.
+
+### 3. Запуск обучения
+Откройте `stylegan_nada_training.ipynb` в Google Colab 
+или по ссылке: Google colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/15Gw1bW2IYVy7vCSu5Za_rVCw8QBu8zuW?usp=sharing)
+
+## Структура проекта
+- `stylegan2-pytorch/` — реализация StyleGAN2 от rosinality
+- `checkpoints/` — предобученные модели и чекпоинты
+- `notebooks/` — Jupyter-ноутбуки с экспериментами
+- `src/` — модули (CLIP loss, utils и т.д.)
+- `results/` — изображения, графики
+
+
+## Ссылки
+- Оригинальная статья: https://arxiv.org/abs/2108.00946
+- Репозиторий StyleGAN2: https://github.com/rosinality/stylegan2-pytorch
+
+
+
+
+
